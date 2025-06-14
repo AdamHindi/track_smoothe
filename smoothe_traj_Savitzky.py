@@ -36,6 +36,9 @@ def savgol_filter(y, window_length, order):
     ---------
         - 1D array of length y
     """
+    # Check conditions
+    if window_length % 2 == 0 or window_length < 1:
+        raise ValueError("window_length must be a positive odd integer")
     
     # Compute filter coefficients
     coeffs = savitzky_golay_coeffs(window_length, order)
@@ -66,6 +69,7 @@ def load_trajectory(filename='trajectory.npy'):
 
 
 if __name__ == "__main__":
+    # Load Trajectories
     t_loaded, x_noisy, y_noisy = load_trajectory('trajectory.npy')
     # Apply Savitzky–Golay filter
     window_length = 15 # must be odd, 1<w< len(y_noisy)

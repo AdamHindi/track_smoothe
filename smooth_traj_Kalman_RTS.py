@@ -110,8 +110,9 @@ def load_trajectory(filename='trajectory.npy'):
         return t, x, y
     raise ValueError("Shape doesn't fit")
 if __name__ == "__main__":
+    # Load trajectories
     t_loaded, x_noisy, y_noisy = load_trajectory('trajectory.npy')
-    
+    # Apply Kalman + RTS filter
     x_sm, y_sm = kalman_smoother(t_loaded, x_noisy, y_noisy,
                                 sigma_process=1, sigma_measurement=0.5)
 
