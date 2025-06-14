@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from random import randint
-from numpy import sin, cos
+
 
 # Reconstruct a continuous function:
 
