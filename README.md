@@ -21,6 +21,10 @@ A simple synthetic data generator (`model_xy.py`) is provided for testing, along
 * `model_xy.py`
   Generates synthetic
   $(x, y)$ trajectories of a 2D walk using Gaussian distribution for heading angles.
+  **Features:**
+
+  * Gaussian heading angle (var_psi), with cutoff over $[-a,a]$.
+  * Gaussian acceleration (Esp = 0, var_acc).
 
 * `smooth_traj_Kalman_RTS.py`
   Implements a constant-velocity Kalman filter followed by an RTS smoother to recover a smooth path from noisy $(x, y)$ measurements.
