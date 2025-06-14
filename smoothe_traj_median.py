@@ -50,15 +50,15 @@ if __name__ == "__main__":
     # Apply Median filter
     window_length = 5 # must be odd, 1<w< len(y_noisy)
     
-    x_sg = median_filter_1d(x_noisy, window_length)
-    y_sg = median_filter_1d(y_noisy, window_length)
+    x_m = median_filter_1d(x_noisy, window_length)
+    y_m = median_filter_1d(y_noisy, window_length)
 
     # Plot the noisy vs. smoothed trajectory
     plt.plot(x_noisy, y_noisy, '.', label='Noisy trajectory')
-    plt.plot(x_sg, y_sg, '-', label='Savitzky–Golay smoothed')
+    plt.plot(x_m, y_m, '-', label='Median smoothed')
     plt.axis('equal')
     plt.legend()
-    plt.title('Savitzky–Golay Smoothing of a Single Trajectory')
+    plt.title('Median Smoothing of a Single Trajectory')
     plt.xlabel('x')
     plt.ylabel('y')
     plt.show()
