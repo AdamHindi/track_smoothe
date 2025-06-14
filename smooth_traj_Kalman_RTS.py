@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-# Reconstruct a continuous function:
-
 def kalman_smoother(t, x_noisy, y_noisy, sigma_process=1.0, sigma_measurement=1.0):
     """
     Applies a constant-velocity Kalman filter + Rauch–Tung–Striebel smoother
