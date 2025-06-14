@@ -38,7 +38,7 @@ A simple synthetic data generator (`model_xy.py`) is provided for testing, along
   * Configurable window length and polynomial order
   * Requires uniformly sampled data
 
-*`smoothe_traj_median.py`
+* `smoothe_traj_median.py`
   Applies median filter to smoothe data.
   **Features:**
 
@@ -57,6 +57,11 @@ A simple synthetic data generator (`model_xy.py`) is provided for testing, along
 
   * `window_length` (odd integer > polynomial order)
   * `polyorder` (degree of local polynomial)
+ 
+* **Median filter** parameters in `smoothe_traj_median.py`:
+
+  * `window_length` (odd integer)
+ 
 
 Adjust these to balance smoothness versus fidelity.
 
