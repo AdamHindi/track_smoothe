@@ -109,13 +109,18 @@ def load_trajectory(filename='trajectory.npy'):
         y = pos[:, 1]
         return t, x, y
     raise ValueError("Shape doesn't fit")
+if __name__ == "__main__":
+    t_loaded, x_noisy, y_noisy = load_trajectory('trajectory.npy')
+    
+    x_sm, y_sm = kalman_smoother(t_loaded, x_noisy, y_noisy,
+                                sigma_process=1, sigma_measurement=0.5)
 
-t_loaded, x_loaded, y_loaded = load_trajectory('trajectory2.npy')
-x_sm, y_sm = kalman_smoother(t_loaded, x_loaded, y_loaded,
-                                sigma_process=4, sigma_measurement=20)
-plt.scatter(x_loaded,y_loaded)
-plt.plot()
-plt.show()
-plt.scatter(x_loaded, y_loaded, s=10, alpha=0.5, label='noisy')
-plt.plot(x_sm, y_sm, 'r-', label='smoothed')
-plt.legend(); plt.show()
+    # Plot the noisy vs. smoothed trajectory
+    plt.plot(x_noisy, y_noisy, '.', label='Noisy trajectory')
+    plt.plot(x_sm, y_sm, '-', label='Kalman smoothed')
+    plt.axis('equal')
+    plt.legend()
+    plt.title('Kalman Smoothing of a Single Trajectory')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
